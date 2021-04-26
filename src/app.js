@@ -3,6 +3,8 @@ const open =require('open')
 const path=require('path')
 const exphbs = require('express-handlebars');
 
+const port=process.env.PORT||3000
+
 const app = express()
 const staticFilePath = path.join(__dirname,"../public")
 console.log(staticFilePath)
@@ -29,7 +31,7 @@ app.get("*",(req,res)=>{
 })
 
 
-app.listen("3000",()=>{
-    console.log("App server is started at port 3000.")
-    open("http://localhost:3000")
+app.listen(port,()=>{
+    console.log("App server is started at port "+ port)
+    open("http://localhost:"+port)
 })
